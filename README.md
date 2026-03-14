@@ -90,30 +90,31 @@ http://localhost:5000/api/docs
 
 ---
 
-# 📂 Project Structure
+## 📁 Project Structure
+
+```
 Scalable-Distributed-URL-Shortener
 │
 ├── backend
-│ ├── src
-│ │ ├── config
-│ │ │ ├── db.js
-│ │ │ ├── redis.js
-│ │ │ └── swagger.js
-│ │ │
-│ │ ├── controllers
-│ │ ├── models
-│ │ ├── routes
-│ │ └── app.js
-│ │
-│ └── package.json
+│   ├── src
+│   │   ├── config
+│   │   │   ├── db.js
+│   │   │   ├── redis.js
+│   │   │   └── swagger.js
+│   │   │
+│   │   ├── controllers
+│   │   ├── models
+│   │   ├── routes
+│   │   └── app.js
+│   │
+│   └── package.json
 │
 ├── frontend
-│ ├── src
-│ └── package.json
+│   ├── src
+│   └── package.json
 │
 └── docker-compose.yml
-
----
+```
 
 # 🐳 Docker Setup
 
