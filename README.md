@@ -1,4 +1,4 @@
-# URL Shortener Platform
+# Scalable-Distributed-URL-Shortener
 
 A production-oriented **URL shortener** built with a modern full-stack architecture:
 
@@ -347,7 +347,14 @@ This provides interactive endpoint documentation and testing.
 
 ---
 
-## License
+# 👨‍💻 Author
 
-No explicit license is set in this repository yet.  
-If you plan to publish publicly, add a `LICENSE` file (MIT is common for open-source projects).
+Samarth Saxena  
+B.Tech — MAIT Delhi
+
+Interested in backend engineering, scalable APIs, and distributed systems.
+
+---
+
+⭐ If you like this project, give it a star!
+
