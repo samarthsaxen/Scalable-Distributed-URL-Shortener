@@ -1,50 +1,68 @@
-# Scalable-Distributed-URL-Shortener
+# Scalable Distributed URL Shortener
 
-🔗 **Live Demo:** https://scalable-distributed-url-shortener.vercel.app/
-⚙️ **Backend API:** https://scalable-distributed-url-shortener-production.up.railway.app/
-📘 **API Docs (Swagger):** https://scalable-distributed-url-shortener-production.up.railway.app/api/docs 
+A production-ready, cloud-deployed URL shortener engineered for low-latency redirects, analytics, and real-world scalability patterns.
 
-A production-oriented **URL shortener** built with a modern full-stack architecture:
+🔗 **Live Frontend (Vercel):** https://scalable-distributed-url-shortener.vercel.app/  
+⚙️ **Live Backend (Railway):** https://scalable-distributed-url-shortener-production.up.railway.app/  
+📘 **Live API Docs (Swagger):** https://scalable-distributed-url-shortener-production.up.railway.app/api/docs
 
-- **Backend:** Node.js + Express + MongoDB + Redis
-- **Frontend:** React + Vite
-- **API Documentation:** Swagger UI
-- **Containerization:** Docker + Docker Compose
+### Recruiter Snapshot
+
+- Built as a **full-stack distributed-style system** with separate frontend and backend deployments.
+- Designed with **performance-first architecture** using Redis caching + MongoDB persistence.
+- Includes **production-focused engineering**: rate limiting, CORS controls, TTL cleanup, API docs, and Dockerized local parity.
+- Demonstrates practical backend fundamentals: data modeling, caching strategy, redirect lifecycle, analytics, and deployment readiness.
+
+### Live Deployment
+
+- **Frontend:** Vercel  
+- **Backend/API:** Railway  
+- **API Documentation:** Swagger (hosted on Railway backend)
 
 ---
 
 ## Table of Contents
 
 - [Overview](#overview)
+- [Why This Project Stands Out](#why-this-project-stands-out)
 - [Key Features](#key-features)
 - [Architecture Diagram](#architecture-diagram)
 - [Request Flow Diagram](#request-flow-diagram)
 - [Folder Architecture](#folder-architecture)
 - [Project Structure](#project-structure)
 - [Tech Stack](#tech-stack)
+- [Production Highlights](#production-highlights)
 - [API Endpoints](#api-endpoints)
 - [Environment Variables](#environment-variables)
 - [Getting Started (Local)](#getting-started-local)
 - [Getting Started (Docker)](#getting-started-docker)
 - [API Documentation (Swagger)](#api-documentation-swagger)
 - [Production Notes](#production-notes)
+- [Engineering Decisions & Learnings](#engineering-decisions--learnings)
 - [Troubleshooting](#troubleshooting)
 - [Contribution Guidelines](#contribution-guidelines)
-- [License](#license)
 
 ---
 
 ## Overview
 
-This project allows users to:
+This project enables users to:
 
-1. Create shortened URLs (random or custom alias).
-2. Redirect using short links.
-3. Track analytics (click count, click timeline).
-4. Cache redirection targets in Redis for performance.
-5. Expire links automatically with MongoDB TTL index.
+1. Generate short URLs (random or custom alias).
+2. Redirect reliably using short links.
+3. Track analytics (click count and click timeline).
+4. Speed up redirect lookups with Redis caching.
+5. Auto-expire links using MongoDB TTL indexes.
 
-It is designed as a clean monorepo with separate `backend` and `frontend` services, coordinated using Docker Compose.
+The repository is organized as a clean monorepo (`backend` + `frontend`) with Docker-based local orchestration and cloud deployment separation (Railway + Vercel).
+
+## Why This Project Stands Out
+
+- **Cloud deployed and production accessible** (not just local/demo code).
+- **Scalability-oriented design** with cache-first redirect optimization.
+- **Operational maturity** with rate limiting, CORS, validation, and documented APIs.
+- **Recruiter-relevant backend depth**: data model lifecycle, cache invalidation-aware logic, and analytics instrumentation.
+- **Deployment parity** via Dockerized local setup and hosted production endpoints.
 
 ---
 
@@ -196,11 +214,11 @@ url-shortener/
 
 ## 🏗️ Production Highlights
 
-- Handled **10K+ simulated daily requests**
-- Reduced database load by **~40% using Redis caching**
-- Improved API response time by **~45%**
-- Built with **scalable microservice-style architecture**
-- Configured for **cloud deployment (Railway + Vercel)**
+- Simulated high-traffic behavior with **10K+ daily request-scale test scenarios**.
+- Reduced repeated database lookups via **Redis-backed redirect caching**.
+- Improved redirect responsiveness through **cache-first resolution strategy**.
+- Shipped with **cloud deployment split**: Vercel (frontend) + Railway (backend).
+- Included **production guardrails**: request rate limiting, CORS allowlist, and strict URL validation.
 
 ## API Endpoints
 
@@ -318,11 +336,20 @@ This provides interactive endpoint documentation and testing.
 ## Production Notes
 
 - **Rate Limiting:** Enabled globally in backend (`express-rate-limit`).
-- **CORS:** Controlled via `CORS_ORIGIN` allowlist.
-- **Redis Cache:** Used for fast shortCode -> originalUrl resolution.
-- **TTL Expiry:** MongoDB TTL index on `expiresAt` auto-cleans expired links.
-- **URL Validation:** Strict `http/https` validation via `validator`.
+- **CORS:** Controlled through `CORS_ORIGIN` allowlist.
+- **Redis Cache:** Used for fast `shortCode -> originalUrl` resolution.
+- **TTL Expiry:** MongoDB TTL index on `expiresAt` automatically removes expired links.
+- **URL Validation:** Enforced `http/https` validation using `validator`.
 - **Alias Rules:** 4–20 chars, `[a-zA-Z0-9_-]`.
+- **Deployments:** Frontend on Vercel, backend + docs on Railway.
+
+## Engineering Decisions & Learnings
+
+- Chose **Redis + MongoDB** to balance low-latency reads with durable persistence.
+- Used **TTL indexes** to avoid manual cleanup jobs for expired URLs.
+- Kept API documentation integrated via **Swagger** for faster integration/testing.
+- Applied **defensive backend controls** (validation, CORS, rate limiting) early to improve production readiness.
+- Structured code into config/controllers/models/routes for maintainability and easier future scaling.
 
 ---
 

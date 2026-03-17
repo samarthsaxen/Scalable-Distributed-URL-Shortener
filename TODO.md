@@ -1,0 +1,6 @@
+- [ ] Rewrite README opener to recruiter-focused summary
+- [ ] Add/refresh Live Deployment section with Railway + Vercel + Swagger links
+- [ ] Add "Why this project stands out" section
+- [ ] Improve production highlights wording for credibility and impact
+- [ ] Add engineering decisions / learnings section
+- [ ] Proofread formatting and consistency
