@@ -29,13 +29,15 @@ const corsOptions =
       }
     : {};
 
+app.set("trust proxy", 1);    
+
 const limiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 100, // max 100 requests per minute
-  message: "Too many requests from this IP, please try again later."
+  windowMs: 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
-app.set("trust proxy", 1);
 
 // Middleware
 app.use(express.json());
