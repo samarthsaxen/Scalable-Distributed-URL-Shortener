@@ -1,0 +1,101 @@
+# ------------------------------
+# Root / Monorepo
+# ------------------------------
+node_modules/
+**/node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage & reports
+coverage/
+*.lcov
+.nyc_output/
+
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Cache / temp
+.cache/
+.tmp/
+temp/
+.tmp/
+.eslintcache
+.parcel-cache/
+.vite/
+
+# ------------------------------
+# Environment files
+# ------------------------------
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# ------------------------------
+# IDE / Editor
+# ------------------------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ------------------------------
+# OS files
+# ------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ------------------------------
+# Docker / container artifacts
+# ------------------------------
+docker-data/
+*.tar
+
+# ------------------------------
+# Backend specific (Node/Express)
+# ------------------------------
+backend/.env
+backend/.env.*
+backend/coverage/
+backend/dist/
+backend/build/
+
+# ------------------------------
+# Frontend specific (Vite/React)
+# ------------------------------
+frontend/.env
+frontend/.env.*
+frontend/dist/
+frontend/build/
+frontend/coverage/
+
+# Keep favicon/assets tracked unless generated at runtime
+# frontend/public/
+
+# ------------------------------
+# Package manager / lock handling
+# Keep lockfiles for reproducible builds
+# ------------------------------
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
